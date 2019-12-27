@@ -4,8 +4,6 @@ import Navi from "../components/Login";
 
 export default function Home(props) {
   const [video_info, setvideo_info] = useState([]);
-
-  console.log(process.env.REACT_APP_API_URL,'api');
   const get_video = async () => {
     const res = await fetch(`${process.env.REACT_APP_API_URL}/videos`, {
       method: "GET",
