@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+
+.text-overflow-1 {
+  display: block;
+  display: -webkit-box;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+

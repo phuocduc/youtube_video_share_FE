@@ -1,0 +1,25 @@
+form{
+    display: flex;
+    justify-content: center;
+
+}
+fieldset {
+    border: 1px solid #000;
+    width: 50%;
+  
+}
+
+legend{
+    width: 45%;
+}
+.wrapper-share{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.share-input{
+    display: flex;
+
+}

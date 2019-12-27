@@ -1,0 +1,57 @@
+.nav-login{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid;
+}
+
+.title-movie{
+    text-decoration: none !important;
+}
+
+.login-side{
+    align-items: center;
+}
+
+
+.login-button:hover{
+    cursor: pointer;
+    background-color: red;
+}
+
+
+
+.register-button:hover{
+    
+    cursor: pointer;
+    background-color: blue;
+
+}
+
+.hr-navibar{
+    width: 100%;
+    border: 1px solid black;
+}
+
+.form-loginn{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+@media (max-width:673px)
+{
+    .login-side,.form-loginn{
+        flex-direction: column;
+        width: 295px;
+        margin-top:11px;
+
+    }
+    .title-movie{
+        font-size:22pt;
+    }
+    .btn-share{
+        margin:7px;
+        font-size: 15pt;
+    }
+
+}
