@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../assets/css/login.css";
 import { useHistory } from "react-router-dom";
 import { Button, Modal } from "react-bootstrap";
+import { useAlert } from 'react-alert'
 
 export default function Login(props) {
   const [loginInfo, setLoginInfo] = useState({});
@@ -10,7 +11,7 @@ export default function Login(props) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const alert = useAlert()
   const history = useHistory();
   const handleSubmit = async e => {
     e.preventDefault();
@@ -24,17 +25,23 @@ export default function Login(props) {
     });
     const data = await res.json();
     if (data.state === "not_user") {
-      alert("please sign up first");
+      alert.show("Invalid Email! or Go To Register First",{
+        type:'error'
+      });
     }
     if (data.state === "wrongPass") {
-      alert("Password is not correct!");
+      alert.show("Invalid Password!",{
+        type:'error'
+      });
     }
 
     if (data.state === "success") {
       props.setUser({ name: data.user });
       localStorage.setItem("token", data.token);
       localStorage.setItem("name", data.user);
-      alert("login sucess");
+      alert.show("Login Success",{
+        type:'success'
+      });
     }
   };
 
@@ -50,7 +57,9 @@ export default function Login(props) {
       if (data.success === true) localStorage.clear("token");
       props.setUser && props.setUser(null);
       history.push("/");
-      alert("logout");
+      alert.show("Logout and See you again!",{
+        type: 'success'
+      });
     }
   };
 
@@ -66,11 +75,15 @@ export default function Login(props) {
     });
     const data = await response.json();
     if (data.state === "success") {
-      alert("register success");
+      alert.show("Register Success",{
+        type:'success'
+      });
       handleClose();
     }
     if (data.state === "exist_user") {
-      alert("user already");
+      alert.show("User has already registered!",{
+        type:'info'
+      });
     }
   };
 

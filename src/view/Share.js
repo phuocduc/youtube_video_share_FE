@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import "../assets/css/share.css";
 import { useHistory } from "react-router-dom";
 import Navi from "../components/Login";
+import { useAlert } from 'react-alert'
 
 export default function Share(props) {
   const [videoUrl, setVideoUrl] = useState({});
   const history = useHistory();
 
-
+  const alert = useAlert()
 
   const handleOnsubmit = async e => {
     e.preventDefault();
@@ -18,7 +19,10 @@ export default function Share(props) {
     );
     const data = await res.json();
     if (data.items[0] === undefined) {
-      alert("error")
+      alert.show("Please Click Share Button at Youtube Channel",{
+        type:'info',
+        timeout:5000
+      })
     }
     else {
 
@@ -40,10 +44,14 @@ export default function Share(props) {
       const gdata = await response.json();
       if (gdata.state === "success") {
         history.push("/");
-        alert("add success");
+        alert.show("Added New Video Success",{
+          type:'success'
+        });
       }
       if (gdata.state==="existUrl"){
-        alert("this url existed")
+        alert.show("This Video Share Has Existed, Pls Try Other",{
+          type:'info'
+        })
       }
     }
 
