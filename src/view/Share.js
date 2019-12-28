@@ -13,7 +13,7 @@ export default function Share(props) {
   const handleOnsubmit = async e => {
     e.preventDefault();
     const obj = videoUrl.video_url;
-    const video_id = obj && obj.substring(obj.lastIndexOf("/") + 1);
+    const video_id = obj && obj.substring(obj.lastIndexOf("=") + 1);
     const res = await fetch(
       `https://www.googleapis.com/youtube/v3/videos?id=${video_id}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
     );
@@ -66,10 +66,10 @@ export default function Share(props) {
       <div className="container wrapper-share">
         <form onSubmit={handleOnsubmit}>
           <fieldset>
-            <legend className="ml-2">Share a Youture movie:</legend>
+            <legend className="ml-2 title-share">Share a Youture movie:</legend>
             <div className="share-input p-4">
               <span>Youtube URL:</span>
-              <span className="ml-2" style={{ width: "50%" }}>
+              <span className="ml-2 input-shareurl">
                 <input
                   type="text"
                   name="video_url"

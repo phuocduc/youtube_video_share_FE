@@ -23,3 +23,21 @@ legend{
     display: flex;
 
 }
+
+.input-shareurl{
+    width: 50%;
+}
+
+@media (max-width:673px)
+{
+    fieldset{
+        width:100%;
+    }
+    legend{
+        width: 62%;
+        font-size: 13pt;
+    }
+    .input-shareurl{
+        width: 100%;
+    }
+}
