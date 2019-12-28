@@ -13,7 +13,7 @@ export default function Share(props) {
   const handleOnsubmit = async e => {
     e.preventDefault();
     const obj = videoUrl.video_url;
-    const video_id = obj && obj.substring(obj.lastIndexOf("=") + 1);
+    const video_id = obj && obj.substring(obj.lastIndexOf("=") + 1 || obj.lastIndexOf("/") + 1);
     const res = await fetch(
       `https://www.googleapis.com/youtube/v3/videos?id=${video_id}&key=${process.env.REACT_APP_API_KEY}&part=snippet`
     );
