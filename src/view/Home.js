@@ -39,8 +39,8 @@ export default function Home(props) {
                 <div className="col-12 col-md-6">
                   <h5>{video.title}</h5>
                   <p>Shared by: {video.poster}</p>
-                  <i className="fa fa-hand-o-up mr-2"></i>
-                  <i className="fa fa-hand-o-down"></i>
+                  {/* <i className="fa fa-hand-o-up mr-2"></i>
+                  <i className="fa fa-hand-o-down"></i> */}
                   <div>Description:</div>{" "}
                   <p className="text-overflow-1">{video.description}</p>
                 </div>
